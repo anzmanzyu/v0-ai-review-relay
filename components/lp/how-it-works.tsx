@@ -11,8 +11,8 @@ const steps = [
   {
     number: "2",
     icon: Bot,
-    title: "AIに投げる",
-    body: "生成されたプロンプトをChatGPT・Claude・Geminiなどに貼り付ける。",
+    title: "AIが自動レビュー",
+    body: "7つのAI視点が役割に沿って相談を自動でレビュー。手動コピペ不要。",
   },
   {
     number: "3",
