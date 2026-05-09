@@ -1,16 +1,14 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { ArrowRight } from "lucide-react"
+import dynamic from "next/dynamic"
 
-const aiRoles = [
-  { icon: "🎯", label: "モデレーター" },
-  { icon: "💡", label: "企画" },
-  { icon: "🔧", label: "現場" },
-  { icon: "👥", label: "顧客" },
-  { icon: "⚠️", label: "リスク" },
-  { icon: "✂️", label: "批判" },
-  { icon: "📋", label: "整理" },
-]
+const LottieHero = dynamic(
+  () => import("@/components/lp/lottie-hero").then((m) => m.LottieHero),
+  { ssr: false }
+)
 
 export function Hero() {
   return (
@@ -43,46 +41,8 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Hero Illustration */}
-        <div className="mx-auto mt-16 max-w-3xl">
-          <div className="flex flex-col items-center gap-8">
-            {/* AI Role Icons */}
-            <div className="flex flex-wrap items-center justify-center gap-3">
-              {aiRoles.map((role, index) => (
-                <div
-                  key={index}
-                  className="flex flex-col items-center gap-1 rounded-full border border-border bg-card px-4 py-2 shadow-sm"
-                >
-                  <span className="text-xl">{role.icon}</span>
-                  <span className="text-xs font-medium text-muted-foreground">
-                    {role.label}
-                  </span>
-                </div>
-              ))}
-            </div>
-
-            {/* Arrow */}
-            <div className="flex flex-col items-center gap-2 text-muted-foreground">
-              <div className="h-8 w-px bg-border" />
-              <ArrowRight className="h-6 w-6 rotate-90" />
-              <div className="h-8 w-px bg-border" />
-            </div>
-
-            {/* Output Document */}
-            <div className="w-full max-w-md rounded-lg border border-border bg-card p-6 shadow-lg">
-              <div className="mb-3 flex items-center gap-2">
-                <div className="h-3 w-3 rounded-full bg-primary" />
-                <span className="text-sm font-semibold text-foreground">
-                  判断表
-                </span>
-              </div>
-              <div className="space-y-2">
-                <div className="h-2 w-full rounded bg-muted" />
-                <div className="h-2 w-4/5 rounded bg-muted" />
-                <div className="h-2 w-3/5 rounded bg-muted" />
-              </div>
-            </div>
-          </div>
+        <div className="mx-auto mt-16 max-w-md">
+          <LottieHero />
         </div>
       </div>
     </section>

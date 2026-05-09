@@ -1,38 +1,54 @@
 import { Card, CardContent } from "@/components/ui/card"
+import {
+  MessageSquare,
+  Lightbulb,
+  Wrench,
+  User,
+  ShieldAlert,
+  Scissors,
+  ClipboardList,
+} from "lucide-react"
 
 const aiRoles = [
   {
-    icon: "🎯",
+    icon: MessageSquare,
+    color: "bg-blue-100 text-blue-600",
     name: "モデレーターAI",
     desc: "相談を論点に分解し、各役割への問いを設計する",
   },
   {
-    icon: "💡",
+    icon: Lightbulb,
+    color: "bg-green-100 text-green-600",
     name: "企画AI",
     desc: "アイデア・代替案・広げる視点を提案する",
   },
   {
-    icon: "🔧",
+    icon: Wrench,
+    color: "bg-orange-100 text-orange-600",
     name: "現場AI",
     desc: "実行可能か・運用負担を現場目線で評価する",
   },
   {
-    icon: "👥",
+    icon: User,
+    color: "bg-purple-100 text-purple-600",
     name: "顧客AI",
     desc: "相手・読者・利用者目線の違和感を指摘する",
   },
   {
-    icon: "⚠️",
+    icon: ShieldAlert,
+    color: "bg-red-100 text-red-600",
     name: "リスクAI",
     desc: "炎上・法務・誤認リスクを洗い出す",
   },
   {
-    icon: "✂️",
+    icon: Scissors,
+    color: "bg-slate-100 text-slate-600",
     name: "批判AI",
     desc: "過剰設計・効果薄な案をばっさり切る",
   },
   {
-    icon: "📋",
+    icon: ClipboardList,
+    color: "bg-teal-100 text-teal-600",
     name: "整理AI",
     desc: "全AIの回答を判断表に統合してまとめる",
   },
@@ -54,11 +70,13 @@ export function AIRoles() {
           </p>
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {aiRoles.slice(0, 3).map((role, index) => (
+            {aiRoles.slice(0, 6).map((role, index) => (
               <Card key={index} className="border-border/60 bg-card">
                 <CardContent className="p-6">
                   <div className="mb-3 flex items-center gap-3">
-                    <span className="text-2xl">{role.icon}</span>
+                    <div className={`flex h-9 w-9 items-center justify-center rounded-lg ${role.color}`}>
+                      <role.icon className="h-5 w-5" />
+                    </div>
                     <h3 className="font-semibold text-foreground">{role.name}</h3>
                   </div>
                   <p className="text-sm leading-relaxed text-muted-foreground">
@@ -69,12 +87,14 @@ export function AIRoles() {
             ))}
           </div>
 
-          <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {aiRoles.slice(3).map((role, index) => (
-              <Card key={index} className="border-border/60 bg-card">
+          <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {aiRoles.slice(6).map((role, index) => (
+              <Card key={index} className="border-border/60 bg-card lg:col-start-2">
                 <CardContent className="p-6">
                   <div className="mb-3 flex items-center gap-3">
-                    <span className="text-2xl">{role.icon}</span>
+                    <div className={`flex h-9 w-9 items-center justify-center rounded-lg ${role.color}`}>
+                      <role.icon className="h-5 w-5" />
+                    </div>
                     <h3 className="font-semibold text-foreground">{role.name}</h3>
                   </div>
                   <p className="text-sm leading-relaxed text-muted-foreground">
